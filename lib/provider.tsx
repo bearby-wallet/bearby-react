@@ -20,9 +20,7 @@ export function BearbyProvider<T>(props: T) {
     if (!globalThis.window) return;
     handleUpdate();
     const observer = web3.wallet.subscribe(() => {
-      setTimeout(() => {
-        handleUpdate();
-      }, 1);
+      handleUpdate();
     });
     return () => {
       observer.unsubscribe();
