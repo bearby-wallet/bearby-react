@@ -33,7 +33,7 @@ ReactDOM.render(
 );
 ```
 
-The first step is to wrap you App or any React subtree with the BearbyProvider
+In any React child of the provider, one can use the `useBearby` hook in order to access the state and methods.
 ```javascript
 import { useBearby, BearbyProvider } from '@hicaru/bearby-react';
 
