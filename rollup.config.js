@@ -1,34 +1,29 @@
 import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
-
+import commonjs from '@rollup/plugin-commonjs';
 
 const production = !process.env.ROLLUP_WATCH;
 
 
 export default {
-        input: 'index.ts',
-        output: {
+    input: 'index.ts',
+    output: {
         dir: 'dist',
-        name: 'web3.react',
+        name: 'bearby.react',
         sourcemap: true,
-        format: 'umd',
-        exports: 'named',
-        sourcemap: true,
-        preferConst: true
+        format: 'iife'
     },
     plugins: [
         resolve({
-            jsnext: true,   
-            main: true,
-            brower: true,
-            preferBuiltins: false
+            brower: true
         }),
         typescript({
             sourceMap: true,
             declaration: true,
             inlineSources: true
         }),
+        commonjs(),
         production && terser({
             format: {
                 comments: false

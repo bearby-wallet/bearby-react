@@ -1,15 +1,15 @@
-import { useState, useEffect, useMemo } from 'react';
+import React from 'react';
 import { web3 } from '@hicaru/bearby.js';
 import { BearbyContext } from './context';
 
 
 export function BearbyProvider<T>(props: T) {
-  const [base58, setBase58] = useState(web3.wallet.account.base58);
-  const [net, setNet] = useState(web3.wallet.network.net);
-  const [enabled, setEnabled] = useState(web3.wallet.enabled);
-  const [connected, setConnected] = useState(web3.wallet.connected);
+  const [base58, setBase58] = React.useState(web3.wallet.account.base58);
+  const [net, setNet] = React.useState(web3.wallet.network.net);
+  const [enabled, setEnabled] = React.useState(web3.wallet.enabled);
+  const [connected, setConnected] = React.useState(web3.wallet.connected);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const observer = web3.wallet.account.subscribe((base58) => {
       setBase58(base58);
       setEnabled(web3.wallet.enabled);
@@ -18,14 +18,14 @@ export function BearbyProvider<T>(props: T) {
     return observer.unsubscribe;
   });
 
-  useEffect(() => {
+  React.useEffect(() => {
     const observer = web3.wallet.network.subscribe((net) => {
       setNet(net);
     });
     return observer.unsubscribe;
   });
 
-  const state = useMemo(() => ({
+  const state = React.useMemo(() => ({
     base58,
     enabled,
     connected,
