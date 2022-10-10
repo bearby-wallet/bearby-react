@@ -10,6 +10,7 @@ export function BearbyProvider<T>(props: T) {
   const [connected, setConnected] = React.useState(web3.wallet.connected);
 
   React.useEffect(() => {
+    if (!globalThis.window) return;
     const observer = web3.wallet.account.subscribe((base58) => {
       setBase58(base58);
       setEnabled(web3.wallet.enabled);
@@ -19,6 +20,7 @@ export function BearbyProvider<T>(props: T) {
   });
 
   React.useEffect(() => {
+    if (!globalThis.window) return;
     const observer = web3.wallet.network.subscribe((net) => {
       setNet(net);
     });
