@@ -2,6 +2,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -12,16 +13,17 @@ export default {
         dir: 'dist',
         name: 'bearby.react',
         sourcemap: true,
-        format: 'iife'
+        format: 'es'
     },
     plugins: [
-        resolve({
-            brower: true
-        }),
+        resolve(),
         typescript({
             sourceMap: true,
             declaration: true,
             inlineSources: true
+        }),
+        peerDepsExternal({
+            includeDependencies: true
         }),
         commonjs(),
         production && terser({
