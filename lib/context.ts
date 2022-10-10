@@ -30,10 +30,8 @@ export type BearbyContext = {
 
 
 export const BearbyContext = React.createContext<BearbyContext>({
-  connected: web3.wallet.connected,
-  enabled: web3.wallet.enabled,
-  base58: web3.wallet.account.base58,
-  net: web3.wallet.network.net,
+  connected: false,
+  enabled: false,
   massa: web3.massa,
   wallet: web3.wallet
 });

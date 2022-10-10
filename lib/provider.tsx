@@ -4,28 +4,30 @@ import { BearbyContext } from './context';
 
 
 export function BearbyProvider<T>(props: T) {
-  const [base58, setBase58] = React.useState(web3.wallet.account.base58);
-  const [net, setNet] = React.useState(web3.wallet.network.net);
-  const [enabled, setEnabled] = React.useState(web3.wallet.enabled);
-  const [connected, setConnected] = React.useState(web3.wallet.connected);
+  const [base58, setBase58] = React.useState<string>();
+  const [net, setNet] = React.useState<string>();
+  const [enabled, setEnabled] = React.useState(false);
+  const [connected, setConnected] = React.useState(false);
+
+  const handleUpdate = React.useCallback(() => {
+    setBase58(web3.wallet.account.base58);
+    setNet(web3.wallet.network.net);
+    setEnabled(web3.wallet.enabled);
+    setConnected(web3.wallet.connected);
+  }, []);
 
   React.useEffect(() => {
     if (!globalThis.window) return;
-    const observer = web3.wallet.account.subscribe((base58) => {
-      setBase58(base58);
-      setEnabled(web3.wallet.enabled);
-      setConnected(web3.wallet.connected);
+    handleUpdate();
+    const observer = web3.wallet.subscribe(() => {
+      setTimeout(() => {
+        handleUpdate();
+      }, 1);
     });
-    return observer.unsubscribe;
-  });
-
-  React.useEffect(() => {
-    if (!globalThis.window) return;
-    const observer = web3.wallet.network.subscribe((net) => {
-      setNet(net);
-    });
-    return observer.unsubscribe;
-  });
+    return () => {
+      observer.unsubscribe();
+    };
+  }, []);
 
   const state = React.useMemo(() => ({
     base58,
