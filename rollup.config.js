@@ -10,9 +10,9 @@ export default {
         input: 'index.ts',
         output: {
         dir: 'dist',
-        name: 'web3',
+        name: 'web3.react',
         sourcemap: true,
-        format: 'amd',
+        format: 'umd',
         exports: 'named',
         sourcemap: true,
         preferConst: true
