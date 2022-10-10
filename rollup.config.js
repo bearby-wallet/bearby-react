@@ -15,6 +15,7 @@ export default {
         sourcemap: true,
         format: 'es'
     },
+    external: ['react'],
     plugins: [
         resolve(),
         typescript({
