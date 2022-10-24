@@ -1,5 +1,5 @@
 import React from 'react';
-import { web3, Wallet, Massa } from '@hicaru/bearby.js';
+import { web3, Wallet, Massa, Contract } from '@hicaru/bearby.js';
 
 
 export type BearbyContext = {
@@ -24,6 +24,7 @@ export type BearbyContext = {
    */
   net?: string;
 
+  contract: Contract;
   massa: Massa;
   wallet: Wallet;
 };
@@ -33,5 +34,6 @@ export const BearbyContext = React.createContext<BearbyContext>({
   connected: false,
   enabled: false,
   massa: web3.massa,
-  wallet: web3.wallet
+  wallet: web3.wallet,
+  contract: web3.contract
 });

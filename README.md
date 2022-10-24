@@ -38,7 +38,7 @@ In any React child of the provider, one can use the `useBearby` hook in order to
 import { useBearby, BearbyProvider } from '@hicaru/bearby-react';
 
 function App() {
-    const { connected, enabled, wallet, massa, base58, net } = useBearby();
+    const { connected, enabled, wallet, massa, contract, base58, net } = useBearby();
 
     return (
         <div>
