@@ -23,10 +23,10 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@hicaru/bearby.js@latest":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@hicaru/bearby.js/-/bearby.js-0.3.0.tgz#360cacfd434e98de2da13145d9b2fad41c8ffc07"
-  integrity sha512-M2Bl/jyUXFUEWRN8Gzav1E+EvCWa47GHaR2wl38kHoe4btwmqZ3ebixu17OjoUDQ2Q/PI3gx78rx0h/EsSkJgg==
+"@hicaru/bearby.js@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@hicaru/bearby.js/-/bearby.js-0.3.1.tgz#36f494970cbda6c0633e1b53ea42e10a39733b8e"
+  integrity sha512-jzbUUSAlXSbjTKzZrchi5Os7FQHvapRzx9rWlQoHXG8ZvvZCltjH4tF/iTno2UIDtLQ4HGR1wRI3NNJwDSfEIA==
 
 "@jridgewell/gen-mapping@^0.3.0":
   version "0.3.2"
