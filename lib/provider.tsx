@@ -49,7 +49,7 @@ export function BearbyProvider<T>(props: T) {
     massa: web3.massa,
     contract: web3.contract,
     wallet: web3.wallet,
-  }), [base58, net, enabled, connected]);
+  }), [base58, net, enabled, connected, period]);
 
   return <BearbyContext.Provider value={state} {...props} />;
 }
