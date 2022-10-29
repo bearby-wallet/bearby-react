@@ -8,7 +8,7 @@ export function BearbyProvider<T>(props: T) {
   const [net, setNet] = React.useState<string>();
   const [enabled, setEnabled] = React.useState(false);
   const [connected, setConnected] = React.useState(false);
-  const [period, setPeriod] = React.useState(-1);
+  const [period, setPeriod] = React.useState<number>();
 
   const handleUpdate = React.useCallback(() => {
     setBase58(web3.wallet.account.base58);

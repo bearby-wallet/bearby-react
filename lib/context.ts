@@ -16,7 +16,7 @@ export type BearbyContext = {
   /**
    * Current node period.
    */
-  period: number;
+  period?: number;
 
   /**
    * A Current selected by user, address in base58 encode.
@@ -38,7 +38,6 @@ export type BearbyContext = {
 export const BearbyContext = React.createContext<BearbyContext>({
   connected: false,
   enabled: false,
-  period: -1,
   massa: web3.massa,
   wallet: web3.wallet,
   contract: web3.contract
