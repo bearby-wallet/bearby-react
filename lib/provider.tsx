@@ -15,6 +15,7 @@ export function BearbyProvider<T>(props: T) {
     setNet(web3.wallet.network.net);
     setEnabled(web3.wallet.enabled);
     setConnected(web3.wallet.connected);
+    setPeriod(web3.wallet.blockchain.period);
   }, []);
 
   React.useEffect(() => {
@@ -26,11 +27,11 @@ export function BearbyProvider<T>(props: T) {
       setConnected(web3.wallet.connected);
     });
     const networkObserver = web3.wallet.network.subscribe((net) => {
-      setNet(web3.wallet.network.net);
+      setNet(net);
       setEnabled(web3.wallet.enabled);
       setConnected(web3.wallet.connected);
     });
-    const periodObserver = web3.massa.subscribe((block: number) => {
+    const periodObserver = web3.wallet.blockchain.subscribe((block: number) => {
       setPeriod(block);
     });
     return () => {

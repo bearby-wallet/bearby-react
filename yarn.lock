@@ -24,9 +24,9 @@
     js-tokens "^4.0.0"
 
 "@hicaru/bearby.js@latest":
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/@hicaru/bearby.js/-/bearby.js-0.2.7.tgz#9f8339dcf6a3fc9b52ff14a4df4cfa572629b6c8"
-  integrity sha512-PFkH33iAjV48xdlh/GYjO61Lkr/hwTn0tpXoKZvnYQ/Me9EIhA61SbBdRRt3ygW6gulKN9ku2U6KFbQIZG8wcw==
+  version "0.2.8"
+  resolved "https://registry.yarnpkg.com/@hicaru/bearby.js/-/bearby.js-0.2.8.tgz#bdd48d5fd3b1d9b2391c1b63ef97df9a1c448175"
+  integrity sha512-L6kIc43AOci7FK5COHO9/MEz9HJkmZFPsSews+W9DaNOAxZYhBoYtfgyP1ykecDNa7VvmwzMAgiZPiLE7FHnhA==
 
 "@jridgewell/gen-mapping@^0.3.0":
   version "0.3.2"
