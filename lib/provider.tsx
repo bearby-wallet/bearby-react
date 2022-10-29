@@ -8,6 +8,7 @@ export function BearbyProvider<T>(props: T) {
   const [net, setNet] = React.useState<string>();
   const [enabled, setEnabled] = React.useState(false);
   const [connected, setConnected] = React.useState(false);
+  const [period, setPeriod] = React.useState(-1);
 
   const handleUpdate = React.useCallback(() => {
     setBase58(web3.wallet.account.base58);
@@ -19,11 +20,23 @@ export function BearbyProvider<T>(props: T) {
   React.useEffect(() => {
     if (!globalThis.window) return;
     handleUpdate();
-    const observer = web3.wallet.subscribe(() => {
-      handleUpdate();
+    const accountObserver = web3.wallet.account.subscribe((base58) => {
+      setBase58(base58);
+      setEnabled(web3.wallet.enabled);
+      setConnected(web3.wallet.connected);
+    });
+    const networkObserver = web3.wallet.network.subscribe((net) => {
+      setNet(web3.wallet.network.net);
+      setEnabled(web3.wallet.enabled);
+      setConnected(web3.wallet.connected);
+    });
+    const periodObserver = web3.massa.subscribe((block: number) => {
+      setPeriod(block);
     });
     return () => {
-      observer.unsubscribe();
+      networkObserver.unsubscribe();
+      accountObserver.unsubscribe();
+      periodObserver.unsubscribe();
     };
   }, []);
 
@@ -32,6 +45,7 @@ export function BearbyProvider<T>(props: T) {
     enabled,
     connected,
     net,
+    period,
     massa: web3.massa,
     contract: web3.contract,
     wallet: web3.wallet,
