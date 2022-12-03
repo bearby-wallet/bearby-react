@@ -1,5 +1,5 @@
 import resolve from '@rollup/plugin-node-resolve';
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import commonjs from '@rollup/plugin-commonjs';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
@@ -15,7 +15,7 @@ export default {
         sourcemap: true,
         format: 'es'
     },
-    external: ['react'],
+    external: ['react', '@hicaru/bearby.js'],
     plugins: [
         resolve(),
         typescript({
