@@ -1,6 +1,6 @@
 {
   "name": "@hicaru/bearby-react",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "main": "index.ts",
   "repository": "git@github.com:bearby-wallet/bearby-react.git",
   "author": "Hicaru <hicc0rus@gmail.com>",
