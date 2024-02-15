@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@hicaru/bearby.js@^0.4.8":
-  version "0.4.8"
-  resolved "https://registry.yarnpkg.com/@hicaru/bearby.js/-/bearby.js-0.4.8.tgz#64ef0eeaf0af6c3db3ffd9b33ed93d8e1c3d2993"
-  integrity sha512-5FKmSgEnJLvC97EqT8YO8rOQb+mnFlDKfoXKGH54ynBFXxW6XOHRvVs2k6GHK5eotOSVKU46XeuchVLaDONaRw==
+"@hicaru/bearby.js@^0.5.6":
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/@hicaru/bearby.js/-/bearby.js-0.5.6.tgz#ecac81b76eedf7ac8a8cecaae993678c8075275c"
+  integrity sha512-UJVlercdsvSQ7i/mEgU9OvoQ4ysYu7/BN0H66o2rLFD111DF19iQSUH5mGeJcAGalx2dbvf34OnJjzL5O8Pd4g==
 
 "@rollup/plugin-commonjs@^23.0.3":
   version "23.0.3"
